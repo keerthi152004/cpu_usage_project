@@ -1,0 +1,14 @@
+# Virtual environments
+venv/
+venvsource/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore raw data (track with DVC instead)
+data/*.csv
+
+# MLflow tracking logs
+mlruns/
