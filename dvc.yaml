@@ -1,9 +1,27 @@
 stages:
   preprocess:
-    cmd: python src/preprocess.py data/raw.csv data/processed.csv
+    cmd: python src/preprocess.py ${data.path} data/processed.csv
     deps:
-    - src/preprocess.py
-    - data/raw.csv
+      - src/preprocess.py
+      - data/dataset1.csv
     outs:
-    - data/processed.csv
+      - data/processed.csv
 
+  train:
+    cmd: python src/train.py data/processed.csv outputs --params params.yaml
+    deps:
+      - src/train.py
+      - data/processed.csv
+      - params.yaml
+    outs:
+      - outputs
+
+  evaluate:
+    cmd: python src/evaluate.py data/processed.csv outputs/model_rf.joblib outputs/scaler.joblib
+    deps:
+      - src/evaluate.py
+      - outputs/model_rf.joblib
+      - outputs/scaler.joblib
+      - data/processed.csv
+    outs:
+      - outputs_eval
