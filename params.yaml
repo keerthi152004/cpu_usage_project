@@ -1,0 +1,14 @@
+data:
+  path: "data/data-1756126612050.csv"    # switch to dataset2.csv when needed
+train:
+  test_size: 0.2
+  random_state: 42
+  rf:
+    n_estimators: 200
+    max_depth: 10
+  svr:
+    C: 1.0
+    gamma: scale
+  mlp:
+    hidden_layer_sizes: [64,32]
+    max_iter: 400

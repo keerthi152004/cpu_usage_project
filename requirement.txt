@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+joblib
+mlflow
+dvc
+matplotlib
+seaborn
+xgboost
+shap
+optuna             # optional
