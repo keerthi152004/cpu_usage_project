@@ -1,5 +1,5 @@
 data:
-  path: "data/data-1756126612050.csv"    # switch to dataset2.csv when needed
+  path: "data/data-1754297123597.csv"   #data-1756126612050.csv       #data-1754297123597.csv    # switch to other dataset.csv when needed
 train:
   test_size: 0.2
   random_state: 42
