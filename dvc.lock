@@ -1,0 +1,65 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/data-1754297123597.csv data/processed.csv
+    deps:
+    - path: data/data-1756126612050.csv
+      hash: md5
+      md5: 448de498a9f801b2a2f00c733ae192f5
+      size: 310056916
+    - path: src/preprocess.py
+      hash: md5
+      md5: b093a2a36e84644b5d6b821b9827d058
+      size: 1306
+    outs:
+    - path: data/processed.csv
+      hash: md5
+      md5: cd56356c697ccbdbc05233244cba59c1
+      size: 11295574
+  train:
+    cmd: python src/train.py data/processed.csv outputs --params params.yaml
+    deps:
+    - path: data/processed.csv
+      hash: md5
+      md5: cd56356c697ccbdbc05233244cba59c1
+      size: 11295574
+    - path: params.yaml
+      hash: md5
+      md5: d6c6dfa4d865e083a34193bd08ae3433
+      size: 270
+    - path: src/train.py
+      hash: md5
+      md5: fad1a301c15ed54f8e11f5b4f9e8ff28
+      size: 2877
+    outs:
+    - path: outputs
+      hash: md5
+      md5: cc2c6a10836329d46bbf795077b1e4c6.dir
+      size: 18771457
+      nfiles: 3
+  evaluate:
+    cmd: python src/evaluate.py data/processed.csv outputs/model_rf.joblib 
+      outputs/scaler.joblib
+    deps:
+    - path: data/processed.csv
+      hash: md5
+      md5: cd56356c697ccbdbc05233244cba59c1
+      size: 11295574
+    - path: outputs/model_rf.joblib
+      hash: md5
+      md5: 7e7375dd38028a3991302c7c8030eb47
+      size: 18769441
+    - path: outputs/scaler.joblib
+      hash: md5
+      md5: 1a4a55ec104b080a596c98da22dd447f
+      size: 1279
+    - path: src/evaluate.py
+      hash: md5
+      md5: 23ab53859cb9992a4753ba3dd764819a
+      size: 2236
+    outs:
+    - path: outputs_eval
+      hash: md5
+      md5: a1edcfb4e08f2409f92fd4fc6794e2bc.dir
+      size: 79630
+      nfiles: 5
