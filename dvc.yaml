@@ -3,7 +3,7 @@ stages:
     cmd: python src/preprocess.py ${data.path} data/processed.csv
     deps:
       - src/preprocess.py
-      - data/dataset1.csv
+      - data/data-1756126612050.csv
     outs:
       - data/processed.csv
 
