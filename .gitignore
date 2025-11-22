@@ -13,3 +13,4 @@ data/*.csv
 # MLflow tracking logs
 mlruns/
 /outputs_eval
+/outputs
