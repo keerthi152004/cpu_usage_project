@@ -6,11 +6,3 @@ venvsource/
 __pycache__/
 *.pyc
 *.pyo
-
-# Ignore raw data (track with DVC instead)
-data/*.csv
-
-# MLflow tracking logs
-mlruns/
-/outputs_eval
-/outputs
